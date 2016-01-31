@@ -1,0 +1,6 @@
+<%= simple_form_for(@category, html:{class:'ui form'}) do |f| %>
+  <%= f.error_notification %>
+    <%= f.input :name, wrapper_html: {class: 'field'} %>
+    <%= f.input :parent_id, label: 'Parent',  wrapper_html: {class: 'field'}, collection: @categories.map{|c| [c.name, c.id ]}, prompt: 'None' %>
+    <%= f.button :submit, class: 'ui button' %>
+<% end %>

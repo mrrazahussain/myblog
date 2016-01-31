@@ -1,0 +1,14 @@
+<%= simple_form_for(@post, html: {class: 'ui form'}) do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+    <%= f.association :category, wraper_html: {class: 'field'}, prompt: 'None' %>
+    <%= f.input :title, wraper_html: {class: 'field'} %>
+    <%= f.cktext_area :content, wraper_html: {class: 'field'}, :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'mini'}%>
+    <%= f.input :tag_list, label: 'Tags',  input_html:{multiple:true}, wrapper_html: {class: 'field'}, collection: Post.all_tags.pluck(:name)  %>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'ui button' %>
+  </div>
+<% end %>
